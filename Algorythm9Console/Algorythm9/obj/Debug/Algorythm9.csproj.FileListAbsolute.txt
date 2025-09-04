@@ -1,8 +1,0 @@
-C:\Users\LAVSHYAK\source\repos\Algorythm9Console\Algorythm9\bin\Debug\Algorythm9.exe.config
-C:\Users\LAVSHYAK\source\repos\Algorythm9Console\Algorythm9\bin\Debug\Algorythm9.exe
-C:\Users\LAVSHYAK\source\repos\Algorythm9Console\Algorythm9\bin\Debug\Algorythm9.pdb
-C:\Users\LAVSHYAK\source\repos\Algorythm9Console\Algorythm9\obj\Debug\Algorythm9.csproj.AssemblyReference.cache
-C:\Users\LAVSHYAK\source\repos\Algorythm9Console\Algorythm9\obj\Debug\Algorythm9.csproj.SuggestedBindingRedirects.cache
-C:\Users\LAVSHYAK\source\repos\Algorythm9Console\Algorythm9\obj\Debug\Algorythm9.csproj.CoreCompileInputs.cache
-C:\Users\LAVSHYAK\source\repos\Algorythm9Console\Algorythm9\obj\Debug\Algorythm9.exe
-C:\Users\LAVSHYAK\source\repos\Algorythm9Console\Algorythm9\obj\Debug\Algorythm9.pdb
