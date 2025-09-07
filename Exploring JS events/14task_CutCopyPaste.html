@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>События cut, copy и paste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>События cut, copy и paste</h1>
+
+    <textarea id="myInput" placeholder="Попробуйте вырезать, скопировать или вставить текст"></textarea>
+
+    <div class="log">
+        <p id="logCut">Вырезание: нет</p>
+        <p id="logCopy">Копирование: нет</p>
+        <p id="logPaste">Вставка: нет</p>
+    </div>
+
+    <script>
+        const textarea = document.getElementById('myInput');
+        
+        const logCut = document.getElementById('logCut');
+        const logCopy = document.getElementById('logCopy');
+        const logPaste = document.getElementById('logPaste');
+
+        textarea.addEventListener('cut', (event) => {
+            const cutText = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd);
+            logCut.textContent = `Вырезание: ${cutText}`;
+            console.log('Текст вырезан:', cutText);
+        });
+
+        textarea.addEventListener('copy', (event) => {
+            const copyText = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd);
+            logCopy.textContent = `Копирование: ${copyText}`;
+            console.log('Текст скопирован:', copyText);
+        });
+
+        textarea.addEventListener('paste', (event) => {
+            event.preventDefault();
+            const pasteData = (event.clipboardData || window.clipboardData).getData('text');
+            logPaste.textContent = `Вставка: ${pasteData}`;
+            console.log('Текст вставлен:', pasteData);
+
+            // Вставляем данные вручную в <textarea>
+            const cursorPos = textarea.selectionStart; // Текущая позиция курсора
+            const textBefore = textarea.value.substring(0, cursorPos); // Текст до позиции курсора
+            const textAfter = textarea.value.substring(cursorPos); // Текст после позиции курсора
+            // Обновляем значение <textarea>, вставляя данные из буфера обмена
+            textarea.value = textBefore + pasteData + textAfter;
+            // Обновляем позицию курсора после вставки
+            textarea.selectionStart = textarea.selectionEnd = cursorPos + pasteData.length;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Работа с DOM</title>
+    <style>
+        #myList {
+            margin-top: 20px;
+            list-style-type: disc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать на мою страницу</h1>
+    <p id="myParagraph">Это оригинальный текст</p>
+    <button id="myButton">Изменить текст</button>
+    <ul id="myList"></ul>
+
+    <script>
+        const button = document.getElementById('myButton');
+        const paragraph = document.getElementById('myParagraph');
+        const list = document.getElementById('myList');
+
+        button.addEventListener('click', () => {
+            // Изменение текста абзаца
+            paragraph.textContent = 'Текст изменен!';
+            
+            // Создание нового элемента списка
+            const newItem = document.createElement('li');
+            newItem.textContent = 'Элемент добавлен';
+            list.appendChild(newItem);
+        });
+
+    </script>
+</body>
+</html>

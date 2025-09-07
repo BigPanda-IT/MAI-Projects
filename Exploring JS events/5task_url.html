@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление URL и историей</title>
+</head>
+<body>
+    <button id="goToGoogle">Перейти на Google</button>
+    <button id="goBack">Назад</button>
+    <p id="currentURL">Текущий URL: </p>
+
+    <script>
+        const goToGoogleButton = document.getElementById('goToGoogle');
+        const goBackButton = document.getElementById('goBack');
+        const currentURLParagraph = document.getElementById('currentURL');
+
+        // Отображение текущего URL
+        currentURLParagraph.textContent += location.href;
+
+        goToGoogleButton.addEventListener('click', () => {
+            location.href = 'https://www.google.com';
+        });
+
+        goBackButton.addEventListener('click', () => {
+            history.back();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Task List</title>
+    <style>
+        .task {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <ul id="taskList"></ul>
+    <button id="addTaskButton">Add Task</button>
+
+    <script>
+        const taskList = document.getElementById('taskList');
+        const addTaskButton = document.getElementById('addTaskButton');
+        let taskCount = 0;
+
+        addTaskButton.addEventListener('click', function() {
+            taskCount++;
+            const newTask = document.createElement('li');
+            newTask.className = 'task';
+            newTask.textContent = `Task ${taskCount}`;
+            taskList.appendChild(newTask);
+        });
+
+        taskList.addEventListener('click', function(event) {
+            if (event.target && event.target.matches('li.task')) {
+                document.querySelectorAll('#taskList .task').forEach(task => {
+                    task.classList.remove('highlight');
+                });
+                event.target.classList.add('highlight');
+            }
+        });
+
+    </script>
+
+</body>
+</html>

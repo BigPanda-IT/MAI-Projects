@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sections with Tasks</title>
+    <style>
+        .section {
+            margin-bottom: 20px;
+        }
+        .task {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>Section 1</h2>
+        <ul class="taskList">
+            <li class="task">Task 1.1</li>
+            <li class="task">Task 1.2</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Section 2</h2>
+        <ul class="taskList">
+            <li class="task">Task 2.1</li>
+            <li class="task">Task 2.2</li>
+        </ul>
+    </div>
+
+    <script>
+        document.body.addEventListener('click', function(event) {
+            if (event.target && event.target.matches('li.task')) {
+                document.querySelectorAll('.taskList .task').forEach(task => {
+                    task.classList.remove('highlight');
+                });
+                event.target.classList.add('highlight');
+            }
+        });
+    </script>
+
+</body>
+</html>

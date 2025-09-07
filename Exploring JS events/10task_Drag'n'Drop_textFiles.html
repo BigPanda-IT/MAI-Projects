@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag'n'Drop File Upload</title>
+    <style>
+        #dropZone {
+            width: 100%;
+            height: 200px;
+            border: 2px dashed #ccc;
+            text-align: center;
+            line-height: 200px;
+            color: #aaa;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+        #dropZone.active {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Перетаскивание текстовых файлов на страницу</h1>
+    <div id="dropZone">Перетащите сюда текстовый файл</div>
+    <pre id="fileContent"></pre>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileContent = document.getElementById('fileContent');
+
+        dropZone.addEventListener('dragover', event => {
+            event.preventDefault();
+            dropZone.classList.add('active');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('active');
+        });
+
+        dropZone.addEventListener('drop', event => {
+            event.preventDefault();
+            dropZone.classList.remove('active');
+
+            const file = event.dataTransfer.files[0];
+            if (file && file.type === "text/plain") {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    fileContent.textContent = reader.result;
+                };
+                reader.readAsText(file);
+            } else {
+                alert("Пожалуйста, загрузите текстовый файл!");
+            }
+        });
+
+    </script>
+</body>
+</html>

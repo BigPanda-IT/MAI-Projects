@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text Color</title>
+
+    <style>
+        .color-block {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+            line-height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="color-block">Блок 1</div>
+    <div class="color-block">Блок 2</div>
+    <div class="color-block">Блок 3</div>
+
+    <script>
+        document.querySelectorAll('.color-block').forEach(block => {
+            block.addEventListener('mouseover', function() {
+                this.style.color = 'red';
+            });
+
+            block.addEventListener('mouseout', function() {
+                this.style.color = 'black';
+            });
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Management with Buttons</title>
+    <style>
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Управление фокусом с помощью кнопок</h1>
+
+    <input type="text" id="input1" placeholder="Поле ввода 1">
+    <input type="text" id="input2" placeholder="Поле ввода 2">
+
+    <button id="focusInput1">Установить фокус на поле ввода 1</button>
+    <button id="focusInput2">Установить фокус на поле ввода 2</button>
+
+    <p id="status">Выберите поле ввода</p>
+
+    <script>
+        const input1 = document.getElementById('input1');
+        const input2 = document.getElementById('input2');
+
+        const status = document.getElementById('status');
+
+        function updateStatus() {
+            if (document.activeElement === input1) {
+                status.textContent = 'Поле ввода 1 в фокусе';
+            } else if (document.activeElement === input2) {
+                status.textContent = 'Поле ввода 2 в фокусе';
+            }
+        }
+
+        input1.addEventListener('focus', updateStatus);
+        input2.addEventListener('focus', updateStatus);
+
+        document.getElementById('focusInput1').addEventListener('click', () => {
+            input1.focus();
+        });
+
+        document.getElementById('focusInput2').addEventListener('click', () => {
+            input2.focus();
+        });
+    </script>
+</body>
+</html>

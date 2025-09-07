@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Event Test 1</title>
+</head>
+<body>
+    <h1>Форма с проверкой полей</h1>
+
+    <form id="myForm">
+
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username"><br>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password"><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+            
+            if (!username || !password) {
+                message.textContent = 'Пожалуйста, заполните все поля.';
+                message.style.color = 'red';
+            } else {
+                message.textContent = 'Форма успешно отправлена.';
+                message.style.color = 'green';
+            }
+        });
+
+    </script>
+
+</body>
+</html>

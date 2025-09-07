@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача 4</title>
+</head>
+<body>
+    <textarea id="textarea" rows="5" cols="30"></textarea>
+    <div id="pasteInfo">Вставленное содержимое: </div>
+
+    <script>
+        const textarea = document.getElementById('textarea');
+        const pasteInfo = document.getElementById('pasteInfo');
+
+        textarea.addEventListener('paste', function(event) {
+            event.preventDefault();
+            const pastedText = event.clipboardData.getData('text');
+            pasteInfo.textContent = `Вставленное содержимое: ${pastedText}`;
+            textarea.value += pastedText; // Вставляем текст вручную
+        });
+    </script>
+</body>
+</html>

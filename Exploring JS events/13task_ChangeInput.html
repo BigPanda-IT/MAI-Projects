@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача 1</title>
+</head>
+
+<body>
+    <form>
+        <label for="textInput">Текстовое поле:</label>
+        <input type="text" id="textInput">
+        <br>
+        <label for="selectInput">Выпадающий список:</label>
+        <select id="selectInput">
+            <option value="Option 1">Опция 1</option>
+            <option value="Option 2">Опция 2</option>
+            <option value="Option 3">Опция 3</option>
+        </select>
+    </form>
+
+    <div id="inputLog">Текстовое поле: </div>
+    <div id="selectLog">Выбранное значение: </div>
+
+
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const selectInput = document.getElementById('selectInput');
+
+        const inputLog = document.getElementById('inputLog');
+        const selectLog = document.getElementById('selectLog');
+
+
+        textInput.addEventListener('input', function() {
+            inputLog.textContent = `Текстовое поле: ${textInput.value}`;
+        });
+
+        selectInput.addEventListener('change', function() {
+            selectLog.textContent = `Выбранное значение: ${selectInput.value}`;
+        });
+
+    </script>
+</body>
+</html>
