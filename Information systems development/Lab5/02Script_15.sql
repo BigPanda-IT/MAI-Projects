@@ -1,0 +1,1 @@
+select * from public.third_year_students lt right join public.professors using (id);

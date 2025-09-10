@@ -1,0 +1,1 @@
+select*from public.left_table lt right join public.right_table rt on lt.l_code = rt.r_code;

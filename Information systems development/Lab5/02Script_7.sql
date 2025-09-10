@@ -1,0 +1,1 @@
+select*from public.left_table lt cross join public.right_table rt where lt.l_code = rt.r_code;

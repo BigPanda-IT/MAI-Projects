@@ -1,0 +1,1 @@
+select*from public.right_table;
