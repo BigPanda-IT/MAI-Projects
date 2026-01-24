@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Метод агрегирования предпочтений</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel = "stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <h1>🎯 Метод агрегирования предпочтений</h1>
+            <p>Система анализа экспертных оценок для принятия оптимальных решений</p>
+        </header>
+
+        <main class="content-area">
+            <section class="theory-section">
+                <h2><span class="section-icon">📚</span> Теоретические основы метода</h2>
+                <p>Метод агрегирования предпочтений — это современный подход к принятию решений в условиях многокритериальности и нечеткости экспертных оценок.</p>
+                
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <h3>📊 Работа с разнородными шкалами</h3>
+                        <p>Возможность сравнения критериев в разных единицах измерения без приведения к общей шкале</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>⚖️ Относительные оценки</h3>
+                        <p>Учет степени превосходства одной альтернативы над другой, а не абсолютных значений</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>🔍 Учет экспертных весов</h3>
+                        <p>Возможность задания коэффициентов важности критериев и компетентности экспертов</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>🎯 Непротиворечивость</h3>
+                        <p>Построение согласованных агрегированных предпочтений на основе индивидуальных оценок</p>
+                    </div>
+                </div>
+
+                <div class="formula-block">
+                    <div>p<sub>ij</sub><sup>t</sup> = x<sub>j</sub><sup>t</sup> / (x<sub>i</sub><sup>t</sup> + x<sub>j</sub><sup>t</sup>) — для критериев максимизации</div>
+                    <div style="margin-top: 10px;">p<sub>ij</sub><sup>t</sup> = x<sub>i</sub><sup>t</sup> / (x<sub>i</sub><sup>t</sup> + x<sub>j</sub><sup>t</sup>) — для критериев минимизации</div>
+                </div>
+            </section>
+
+            <section class="theory-section">
+                <h2><span class="section-icon">🔄</span> Алгоритм работы системы</h2>
+                
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Ввод исходных данных</h3>
+                        <p>Определение альтернатив, критериев и их характеристик</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Построение матриц сравнений</h3>
+                        <p>Создание матриц парных сравнений для каждого критерия</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Расчет суммарной матрицы</h3>
+                        <p>Агрегирование предпочтений по всем критериям</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Построение графа предпочтений</h3>
+                        <p>Создание мажоритарного графа и матрицы весов</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h3>Ранжирование альтернатив</h3>
+                        <p>Вычисление индексов вершин и упорядочивание вариантов</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <h3>Диалог с ЛПР</h3>
+                        <p>Обсуждение результатов с лицом, принимающим решение</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">7</div>
+                        <h3>Принятие окончательного решения</h3>
+                        <p>Выбор оптимальной альтернативы и визуализация результатов</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="practical-task">
+                <h2><span class="section-icon">🚀</span> Практический пример: Выбор IT-проекта для инвестирования</h2>
+                
+                <p>Венчурный фонд рассматривает 4 перспективных IT-стартапа для инвестирования. Каждый проект оценивается по ключевым критериям инвестиционной привлекательности.</p>
+                
+                <div class="criteria-list">
+                    <div class="criterion">
+                        <h4>K₁: Ожидаемая ROI (доходность)</h4>
+                        <p>↑ Максимизация годовой доходности инвестиций (%)</p>
+                        <div class="risk-level high-risk">Высокая важность</div>
+                    </div>
+                    
+                    <div class="criterion">
+                        <h4>K₂: Срок окупаемости</h4>
+                        <p>↓ Минимизация времени возврата инвестиций (месяцы)</p>
+                        <div class="risk-level medium-risk">Средняя важность</div>
+                    </div>
+                    
+                    <div class="criterion">
+                        <h4>K₃: Рыночный потенциал</h4>
+                        <p>↑ Максимизация оценки рынка (баллы 1-10)</p>
+                        <div class="risk-level high-risk">Высокая важность</div>
+                    </div>
+                    
+                    <div class="criterion">
+                        <h4>K₄: Технологические риски</h4>
+                        <p>↓ Минимизация технических рисков (баллы 1-10, где 10 - высокий риск)</p>
+                        <div class="risk-level low-risk">Низкая важность</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 25px; background: rgba(0, 255, 136, 0.1); padding: 20px; border-radius: 10px; border: 1px solid rgba(0, 255, 136, 0.3);">
+                    <h3 style="color: #00ff88; margin-bottom: 15px;">🎯 Рассматриваемые IT-проекты:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="background: rgba(0, 180, 216, 0.1); padding: 15px; border-radius: 8px;">
+                            <h4>a₁: AI-платформа для медицины <span class="project-type ai-project">AI</span></h4>
+                            <p style="font-size: 0.9rem; color: #8ecae6;">Диагностика заболеваний с помощью ИИ</p>
+                        </div>
+                        <div style="background: rgba(67, 97, 238, 0.1); padding: 15px; border-radius: 8px;">
+                            <h4>a₂: FinTech-решение <span class="project-type fintech-project">FinTech</span></h4>
+                            <p style="font-size: 0.9rem; color: #8ecae6;">Автоматизация микрокредитования</p>
+                        </div>
+                        <div style="background: rgba(46, 204, 113, 0.1); padding: 15px; border-radius: 8px;">
+                            <h4>a₃: E-commerce платформа <span class="project-type ecom-project">E-com</span></h4>
+                            <p style="font-size: 0.9rem; color: #8ecae6;">Маркетплейс для нишевых товаров</p>
+                        </div>
+                        <div style="background: rgba(157, 78, 221, 0.1); padding: 15px; border-radius: 8px;">
+                            <h4>a₄: Мобильная игра <span class="project-type game-project">Gaming</span></h4>
+                            <p style="font-size: 0.9rem; color: #8ecae6;">PvP стратегия с блокчейн-экономикой</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px;"><strong>Задача инвестиционного комитета:</strong> Выбрать проект, который обеспечит оптимальный баланс между доходностью, сроками окупаемости, рыночным потенциалом и технологическими рисками.</p>
+            </section>
+
+            <section class="input-section">
+                <h2><span class="section-icon">⚙️</span> Настройка системы</h2>
+                
+                <div class="input-group">
+                    <label class="input-label">Количество критериев оценки:</label>
+                    <input type="number" id="criteria-count" class="input-field" min="1" max="10" value="4">
+                </div>
+                
+                <div id="criteria-setup"></div>
+                
+                <div class="input-group">
+                    <label class="input-label">Количество альтернатив (IT-проектов):</label>
+                    <input type="number" id="alt-count" class="input-field" min="2" max="10" value="4">
+                </div>
+                
+                <div id="input-table-container"></div>
+                
+                <div style="display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="setupCriteria()">
+                        <span class="section-icon">⚙️</span> Настроить критерии
+                    </button>
+                    <button class="action-btn" onclick="setupAlternatives()">
+                        <span class="section-icon">📊</span> Создать таблицу
+                    </button>
+                    <button class="action-btn success-btn" onclick="calculateAll()">
+                        <span class="section-icon">🚀</span> Запустить анализ
+                    </button>
+                </div>
+            </section>
+
+            <section class="input-section" id="matrices-section" style="display: none;">
+                <h2><span class="section-icon">🧮</span> Матрицы парных сравнений</h2>
+                <div id="preference-matrices"></div>
+            </section>
+
+            <section class="input-section" id="sum-section" style="display: none;">
+                <h2><span class="section-icon">➕</span> Суммарная матрица предпочтений</h2>
+                <div id="sum-matrix"></div>
+            </section>
+
+            <section class="input-section" id="adjacency-section" style="display: none;">
+                <h2><span class="section-icon">🔗</span> Граф и матрица весов</h2>
+                <div id="adjacency-matrix"></div>
+            </section>
+
+            <section class="results-panel" id="results-section" style="display: none;">
+                <h2><span class="section-icon">🏆</span> Ранжирование альтернатив</h2>
+                
+                <div class="results-grid">
+                    <!-- Таблица ранжирования -->
+                    <div>
+                        <h3 style="color: #90e0ef; margin-bottom: 15px; font-size: 1.3rem;">Ранжирование альтернатив (от лучшей к худшей):</h3>
+                        <div class="ranking-table-container">
+                            <table class="ranking-table">
+                                <thead>
+                                    <tr>
+                                        <th>Место</th>
+                                        <th>Альтернатива</th>
+                                        <th>Индекс</th>
+                                        <th>Норм. оценка</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ranking-table-body">
+                                    <!-- Данные будут добавлены через JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Компактный график -->
+                    <div>
+                        <h3 style="color: #90e0ef; margin-bottom: 15px; font-size: 1.3rem;">Визуализация интегральных оценок</h3>
+                        <div class="compact-chart-area">
+                            <div class="compact-chart-container">
+                                <canvas id="resultsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-backdrop" id="lpr-dialog">
+        <div class="modal-content">
+            <h2 class="modal-title">Рекомендация инвестиционного комитета</h2>
+            <p style="text-align: center; color: #8ecae6; margin-bottom: 20px;">На основе комплексного анализа инвестиционной привлекательности</p>
+            
+            <div class="recommendation-banner">
+                <div>РЕКОМЕНДУЕМ ИНВЕСТИРОВАТЬ:</div>
+                <div id="recommended-alternative" style="font-size: 2.5rem; margin-top: 10px;"></div>
+            </div>
+            
+            <p style="text-align: center; margin: 25px 0; color: #f0f0f0;">
+                Согласны с рекомендацией комитета?
+            </p>
+            
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <button class="action-btn danger-btn" onclick="disagreeWithRecommendation()">
+                    <span class="section-icon">👎</span> Требуются уточнения
+                </button>
+                <button class="action-btn success-btn" onclick="agreeWithRecommendation()">
+                    <span class="section-icon">💰</span> Подтвердить инвестиции
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="choice-dialog">
+        <div class="modal-content">
+            <h2 class="modal-title">Выбор проекта для инвестирования</h2>
+            <p style="text-align: center; color: #8ecae6; margin-bottom: 20px;">Выберите предпочтительный IT-проект</p>
+            <div id="alternative-choices"></div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="final-dialog">
+        <div class="modal-content">
+            <h2 class="modal-title">✅ Решение принято</h2>
+            
+            <div class="recommendation-banner">
+                <div>ВЫБРАН ДЛЯ ИНВЕСТИЦИЙ:</div>
+                <div id="final-decision-text" style="font-size: 2rem; margin-top: 10px;"></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="action-btn" onclick="closeFinalDialog()">
+                    <span class="section-icon">✅</span> Подтвердить решение
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification-bar" id="notification">
+        <span id="notification-text"></span>
+    </div>
+</body>
+</html>
